@@ -1,0 +1,48 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <time.h> 
+
+using namespace std;
+
+
+int random(){
+
+int rn = (rand() % 100)+1;
+return rn;	
+}
+
+int main()
+{
+	srand((time(NULL)));
+	int arr[10][10];
+	int arr2[10][10];
+	for(int i=0;i<10;i++){
+		for(int j=0;j<10;j++){
+			arr[i][j]=random();
+		}
+	}
+	
+	for(int i=0;i<10;i++){
+		for(int j=0;j<10;j++){
+			cout << arr[i][j] << " ";
+		}
+		cout << endl;
+	}
+	int s = 0;
+		cout << "---------------------\n";
+	for(int i=9;i>=0;i--){
+		int g=0;
+		for(int j=0;j<10;j++){
+			arr2[s][g] = arr[i][j];
+			g++;
+		}
+		s++;
+	}
+		for(int i=0;i<10;i++){
+		for(int j=0;j<10;j++){
+			cout << arr2[i][j] << " ";
+		}
+		cout << endl;
+	}
+}
